@@ -75,6 +75,7 @@ const BikesScreen = () => {
   return (
     (!loading && (
       <>
+        <Logo width="64" height="64" />
         <p>SEARCH FOR NEARBY STOLEN BIKES</p>
         <div className={styles["search-container"]}>
           <Input
