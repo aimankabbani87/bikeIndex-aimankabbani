@@ -18,7 +18,7 @@ const BikeItem = (props) => {
             src={
               props.largeImg != null
                 ? props.largeImg
-                : "../../public/noimages.png"
+                : "./noimages.png"
             }
             width={160}
             height={160}

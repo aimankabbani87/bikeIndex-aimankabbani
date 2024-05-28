@@ -6,7 +6,7 @@ const Logo = ({ width, height }) => {
       <a href="https://bikeindex.org/" target="_blank">
         <img
           alt="Bike Index home"
-          src="../../public/logo.png"
+          src="./logo.png"
           width={width}
           height={height}
         />
