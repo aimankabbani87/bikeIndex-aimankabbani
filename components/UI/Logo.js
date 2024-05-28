@@ -1,4 +1,5 @@
 import styles from "./Logo.module.css";
+
 const Logo = ({ width, height }) => {
   return (
     <div className={styles.container}>
