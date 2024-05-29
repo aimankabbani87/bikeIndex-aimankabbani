@@ -1,36 +1,27 @@
 import styles from "./BikeItem.module.css";
+import BikeInformation from "./BikeInformation";
+import BikeImage from "./BikeImage";
 
 const BikeItem = (props) => {
-  let formattedDate = "";
-  if (props.date_stolen) {
-    let date = new Date(props.dateStolen);
-    formattedDate = date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  }
   return (
-    <li className={styles["bike-item"]} key={props.id}>
-      <a className={styles["bike-item-info"]} href={props.url} target="_blank">
-        <div className={styles["image-container"]}>
-          <img
-            src={
-              props.largeImg != null
-                ? props.largeImg
-                : "./noimages.png"
-            }
-            width={160}
-            height={160}
-          />
-        </div>
-      </a>
-      <div className={styles["bike-information"]}>
-        <h5>Title: {props.title}</h5>
-        <p>dateStolen:{formattedDate}</p>
-        <p>description:{props.description}</p>
-        {/* <p>{props.date_reported}</p> */}
-        <p>locationStolen:{props.stolenLocation}</p>
+    <li className={styles["bike-item"]} key={props.id} id={props.id}>
+      <div className={styles["bike-column-image"]}>
+        <BikeImage
+          className={styles["bike-image"]}
+          img={props.largeImg}
+          url={props.url}
+          width="160"
+          height="160"
+        />
+      </div>
+      <div className={styles["bike-column-image"]}>
+        <BikeInformation
+          className={styles["bike-information"]}
+          title={props.title}
+          stolenDate={props.date_stolen}
+          description={props.description}
+          stolenLocation={props.stolenLocation}
+        />
       </div>
     </li>
   );

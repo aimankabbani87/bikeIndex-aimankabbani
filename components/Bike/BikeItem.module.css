@@ -1,19 +1,19 @@
 .bike-item {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 12px;
   background-color: #f2f2f2;
+  display: flex;
+  flex-wrap: inherit;
+  margin: 15px;
   max-height: 160px;
   width: auto;
   max-width: 1024px;
 }
-
-.bike-item-info {
-  display: inherit;
+.bike-column-image {
+  /* display: flex; */
+  flex-direction: column;
+  margin-right: 15px;
 }
 
-.bike-information {
-  -webkit-box-flex: 0;
-  flex: 0 0 75%;
-  padding: 12px 12px;
+.bike-column-info {
+  /* display: flex; */
+  flex-direction: column;
 }

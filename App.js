@@ -11,12 +11,13 @@ export default function App() {
   };
 
   return (
+    // ToDo
     // <View style={styles.container}>
-    //   {/* {(isLogin && <Bikes />) || <LoginScreen loginHandler={loginHandler} />} */}
-      
+    //   {(isLogin && <BikesScreen />) || <LoginScreen loginHandler={loginHandler} />}
     // </View>
+
     <View style={styles.container}>
-    <BikesScreen />
+      <BikesScreen />
     </View>
   );
 }
@@ -26,6 +27,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    // justifyContent: "center",
+    justifyContent: "center",
   },
 });

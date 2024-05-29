@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Pagination } from "@mui/material";
-import Button from "../components/UI/Button";
-
-import BikeItem from "../components/Bike/BikeItem";
 import TotalCount from "../components/Bike/TotalCount";
-import styles from "./BikesScreen.module.css";
+
 import Logo from "../components/UI/Logo";
-import Input from "../components/UI/Input";
 import EmptyBikesList from "../components/Bike/EmptyBikesList";
+import BikeItemList from "../components/Bike/BikeItemList";
+import SearchBox from "../components/Bike/SearchBox";
 
 const BikesScreen = () => {
   const [bikesItems, setBikesItems] = useState([]);
@@ -76,34 +73,18 @@ const BikesScreen = () => {
     (!loading && (
       <>
         <Logo width="64" height="64" />
-        <p>SEARCH FOR NEARBY STOLEN BIKES</p>
-        <div className={styles["search-container"]}>
-          <Input
-            type="text"
-            placeholder="Search"
-            onChange={searchQueryHander}
-          />
-          <Button type="button" onClick={submitSearchHandler} value="Search" />
-        </div>
+        <SearchBox
+          onSearch={searchQueryHander}
+          onSubmit={submitSearchHandler}
+        />
         <TotalCount total={totalCount} />
 
         {bikesItems.length != 0 ? (
-          <>
-            <ul className={styles["bike-items"]}>
-              {bikesItems.map((item) => (
-                <BikeItem
-                  url={item.url}
-                  id={item.id}
-                  title={item.title}
-                  description={item.description}
-                  dateStolen={item.date_stolen}
-                  stolenLocation={item.stolen_location}
-                  largeImg={item.large_img}
-                />
-              ))}
-            </ul>
-            <Pagination count={totalCount / 10} onChange={setPageNumber} />
-          </>
+          <BikeItemList
+            items={bikesItems}
+            onPaginate={setPageNumber}
+            totalCount={totalCount}
+          />
         ) : (
           <EmptyBikesList />
         )}
